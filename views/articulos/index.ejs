@@ -19,11 +19,20 @@
       <tr>
         <td><%= articulo.titulo %></td>
         <td><%= articulo.autor %></td>
-        <td><%= articulo.contenido.length > 100 ? articulo.contenido.substring(0, 100) + '...' : articulo.contenido %></td>
+        <td>
+          <%= articulo.contenido.length > 100 ? articulo.contenido.substring(0,
+          100) + '...' : articulo.contenido %>
+        </td>
         <td><%= articulo.fecha %></td>
         <td>
           <a href="/articulos/editar/<%= articulo.id %>">Editar</a>
-          <a href="/articulos/eliminar/<%= articulo.id %>">Eliminar</a>
+          <form
+            action="/articulos/eliminar/<%= articulo.id %>"
+            method="POST"
+            style="display: inline"
+          >
+            <button type="submit">Eliminar</button>
+          </form>
         </td>
       </tr>
       <% }) %>

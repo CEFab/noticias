@@ -10,15 +10,6 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   queryCrearArticulo: (articulo) => {
-    // <!-- CREATE TABLE `articulos` (
-    //   `id` int NOT NULL AUTO_INCREMENT,
-    //   `titulo` varchar(100) DEFAULT NULL,
-    //   `autor` varchar(100) DEFAULT NULL,
-    //   `contenido` text,
-    //   `fecha` datetime DEFAULT NULL,
-    //   `imagen` varchar(100) DEFAULT NULL,
-    //   PRIMARY KEY (`id`)
-    // )  -->
     console.log("/articulos database query made");
     return pool
       .promise()
@@ -32,6 +23,13 @@ module.exports = {
           articulo.imagen,
         ]
       )
+      .catch((err) => console.log(err));
+  },
+  deleteArticulo: (id) => {
+    console.log("/articulos database query made");
+    return pool
+      .promise()
+      .query("DELETE FROM articulos WHERE id = ?", [id])
       .catch((err) => console.log(err));
   },
 };

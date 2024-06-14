@@ -1,5 +1,6 @@
+//articulosController.js
 const articulo = require("../models/articulosModel");
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   getAllArticulos: (req, res) => {
@@ -17,7 +18,7 @@ module.exports = {
   },
   crearArticulo: (req, res) => {
     const { titulo, autor, contenido } = req.body;
-    const fecha = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    const fecha = new Date().toISOString().slice(0, 19).replace("T", " ");
     const imagen = req.file ? `/images/${req.file.filename}` : null;
 
     if (!titulo || !autor || !contenido) {
@@ -32,11 +33,28 @@ module.exports = {
       imagen,
     };
 
-    articulo.queryCrearArticulo(nuevoArticulo).then((result) => {
-      res.status(201).send(result);
-    }).catch((err) => {
-      console.log(err);
-      res.status(500).send({ error: "Error al crear el artículo" });
-    });
+    articulo
+      .queryCrearArticulo(nuevoArticulo)
+      .then((result) => {
+        // res.status(201).send(result);
+        res.redirect("/articulos");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ error: "Error al crear el artículo" });
+      });
+  },
+  deleteArticulo: (req, res) => {
+    const { id } = req.params;
+
+    articulo
+      .deleteArticulo(id)
+      .then((result) => {
+        res.redirect("/articulos");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ error: "Error al eliminar el artículo" });
+      });
   },
 };
