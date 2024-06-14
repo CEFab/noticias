@@ -1,53 +1,61 @@
 <%- include ('../partials/header'); -%>
-<div class="container">
-  <h2>Articulos</h2>
-  <ul>
-    <li><a href="/articulos/crear">Crear Articulo</a></li>
-  </ul>
-  <table>
-    <thead>
-      <tr>
-        <th>Titulo</th>
-        <th>Autor</th>
-        <th>Contenido</th>
-        <th>Fecha</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% articulos.forEach(articulo => { %>
-      <tr>
-        <td><%= articulo.titulo %></td>
-        <td><%= articulo.autor %></td>
-        <td><%= articulo.contenido.length > 100 ? articulo.contenido.substring(0, 100) + '...' : articulo.contenido %></td>
-        <td><%= articulo.fecha %></td>
-        <td>
-          <a href="/articulos/editar/<%= articulo.id %>">Editar</a>
-          <a href="#" onclick="deleteArticulo(<%= articulo.id %>)">Eliminar</a>
-        </td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</div>
+  <div class="container">
+    <h2>Articulos</h2>
+    <ul>
+      <li><a href="/articulos/crear">Crear Articulo</a></li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Contenido</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% articulos.forEach(articulo=> { %>
+          <tr>
+            <td>
+              <%= articulo.titulo %>
+            </td>
+            <td>
+              <%= articulo.autor %>
+            </td>
+            <td>
+              <%= articulo.contenido.length> 100 ? articulo.contenido.substring(0, 100) + '...' : articulo.contenido %>
+            </td>
+            <td>
+              <%= articulo.fecha %>
+            </td>
+            <td>
+              <a href="/articulos/editar/<%= articulo.id %>">Editar</a>
+              <a href="#" onclick="deleteArticulo('<%= articulo.id %>')">Eliminar</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
 
-<%- include ('../partials/footer'); -%>
+  <%- include ('../partials/footer'); -%>
 
-<script>
-function deleteArticulo(id) {
-  fetch(`/articulos/eliminar/${id}`, {
-    method: 'DELETE'
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      window.location.reload();
-    } else {
-      alert('Error al eliminar el artículo');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
-</script>
+    <script>
+      function deleteArticulo(id) {
+        fetch(`/articulos/eliminar/${id}`, {
+          method: 'DELETE'
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              window.location.reload();
+            } else {
+              alert('Error al eliminar el artículo');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+    </script>

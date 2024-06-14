@@ -1,4 +1,4 @@
-//articulosController.js
+// articulosController.js
 const articulo = require("../models/articulosModel");
 const path = require("path");
 
@@ -57,5 +57,39 @@ module.exports = {
         res.status(500).json({ success: false, error: "Error al eliminar el artículo" });
       });
   },
+  vistaEditarArticulo: (req, res) => {
+    const { id } = req.params;
+    articulo.getArticuloById(id).then((articulo) => {
+      if (!articulo) {
+        return res.status(404).send({ error: "Artículo no encontrado" });
+      }
+      res.render("articulos/edit", { articulo });
+    });
+  },
+  actualizarArticulo: (req, res) => {
+    const { id } = req.params;
+    const { titulo, autor, contenido } = req.body;
+    const imagen = req.file ? `/images/${req.file.filename}` : null;
 
+    if (!titulo || !autor || !contenido) {
+      return res.status(400).send({ error: "Todos los campos son requeridos" });
+    }
+
+    const articuloActualizado = {
+      titulo,
+      autor,
+      contenido,
+      imagen,
+    };
+
+    articulo
+      .updateArticulo(id, articuloActualizado)
+      .then((result) => {
+        res.redirect("/articulos");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ error: "Error al actualizar el artículo" });
+      });
+  }
 };

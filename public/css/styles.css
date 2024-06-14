@@ -1,43 +1,58 @@
 /* styles.css */
 header {
-    border: 1px solid #000000;
-    padding: 10px;
-  }
-  footer {
-    border: 1px solid #000000;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  .container {
-    margin-top: 20px;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  .articulo {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #000000;
-  }
-  .publicidad {
-    border: 1px solid #000000;
-    padding: 10px;
-  }
-  .publicidad ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 0;
-  }
+  border: 1px solid #000000;
+  padding: 10px;
+}
 
-  /* add solid border to table and data inside */
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
+footer {
+  border: 1px solid #000000;
+  padding: 10px;
+  margin-top: 20px;
+}
 
+.container {
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.articulo {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+.publicidad {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+
+.publicidad ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+/* add solid border to table and data inside */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+/* imagen */
+.imagen-articulo {
+  float: left;
+  max-height: 200px;
+  margin-right: 10px;
+  margin-top: 7px;
+}

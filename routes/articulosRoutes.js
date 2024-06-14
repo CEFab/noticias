@@ -9,8 +9,8 @@ router.get("/api/articulos", articulosController.getAllArticulos);
 router.get("/articulos", articulosController.getVistaArticulos);
 router.get("/articulos/crear", articulosController.vistaCrearArticulo);
 router.post("/articulos/crear", upload.single('imagen'), articulosController.crearArticulo);
+router.get("/articulos/editar/:id", articulosController.vistaEditarArticulo); // Nueva ruta para editar
+router.post("/articulos/editar/:id", upload.single('imagen'), articulosController.actualizarArticulo); // Nueva ruta para actualizar
 router.delete("/articulos/eliminar/:id", articulosController.deleteArticulo);
 
 module.exports = router;
-
-
