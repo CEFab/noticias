@@ -91,5 +91,14 @@ module.exports = {
         console.log(err);
         res.status(500).send({ error: "Error al actualizar el artículo" });
       });
-  }
+  },
+  detalleArticulo: (req, res) => {
+    const { id } = req.params;
+    articulo.getArticuloById(id).then((articulo) => {
+      if (!articulo) {
+        return res.status(404).send({ error: "Artículo no encontrado" });
+      }
+      res.render("articulos/detail", { articulo });
+    });
+  },
 };

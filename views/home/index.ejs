@@ -4,11 +4,13 @@
       <div class="col col-md-2 publicidad">
         <h3>Actualidad</h3>
         <ul>
-          <li><a href="">Noticia 1</a></li>
-          <li><a href="">Noticia 2</a></li>
-          <li><a href="">Noticia 3</a></li>
-          <li><a href="">Noticia 4</a></li>
-          <li><a href="">Noticia 5</a></li>
+          <% articulos.forEach(function(articulo){ %>
+            <li>
+              <a href="/articulos/<%= articulo.id %>">
+                <%= articulo.titulo %>
+              </a>
+            </li>
+            <% }); %>
         </ul>
       </div>
       <div class="col col-md-8">
@@ -23,6 +25,8 @@
                 <p>
                   <%= articulo.contenido %>
                 </p>
+                <!-- <a> para leer el articulo a detalle -->
+                <a href="/articulos/<%= articulo.id %>">Leer más</a>
               </div>
 
             </li>

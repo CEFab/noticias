@@ -12,5 +12,6 @@ router.post("/articulos/crear", upload.single('imagen'), articulosController.cre
 router.get("/articulos/editar/:id", articulosController.vistaEditarArticulo); // Nueva ruta para editar
 router.post("/articulos/editar/:id", upload.single('imagen'), articulosController.actualizarArticulo); // Nueva ruta para actualizar
 router.delete("/articulos/eliminar/:id", articulosController.deleteArticulo);
+router.get("/articulos/:id", articulosController.detalleArticulo);
 
 module.exports = router;

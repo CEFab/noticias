@@ -1,0 +1,24 @@
+<!-- articulo detail.ejs -->
+<%- include ('../partials/header'); -%>
+
+    <div class="container">
+        <h2>
+            <%= articulo.titulo %>
+        </h2>
+
+        <div>
+            <img class="imagen-articulo" src="<%= articulo.imagen %>" alt="">
+            <p>
+                <%= articulo.fecha%>
+            </p>
+            <p>
+                <%= articulo.contenido %>
+            </p>
+            <p>
+                <%= articulo.autor %>
+            </p>
+
+
+        </div>
+
+        <%- include ('../partials/footer'); -%>
