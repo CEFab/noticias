@@ -1,3 +1,5 @@
+//db-config.js
+//mysql2 aplica el patron de diseño pooling para manejar las conexiones a la base de datos
 const mysql = require("mysql2");
 
 // Database config
