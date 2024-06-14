@@ -1,8 +1,8 @@
 // Module imports
 const express = require("express");
 const path = require('path');
-require("dotenv").config();
 const cors = require("cors");
+require("dotenv").config();
 
 // Let's refer to Express as app
 const app = express();
@@ -17,6 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Route Imports
 const userRouter = require("./routes/userRoutes");
