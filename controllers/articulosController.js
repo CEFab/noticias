@@ -50,11 +50,12 @@ module.exports = {
     articulo
       .deleteArticulo(id)
       .then((result) => {
-        res.redirect("/articulos");
+        res.status(200).json({ success: true, result });
       })
       .catch((err) => {
         console.log(err);
-        res.status(500).send({ error: "Error al eliminar el artículo" });
+        res.status(500).json({ success: false, error: "Error al eliminar el artículo" });
       });
   },
+
 };

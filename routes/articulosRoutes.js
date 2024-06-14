@@ -9,7 +9,8 @@ router.get("/api/articulos", articulosController.getAllArticulos);
 router.get("/articulos", articulosController.getVistaArticulos);
 router.get("/articulos/crear", articulosController.vistaCrearArticulo);
 router.post("/articulos/crear", upload.single('imagen'), articulosController.crearArticulo);
-router.post("/articulos/eliminar/:id", articulosController.deleteArticulo);  // Cambiado a POST
+router.delete("/articulos/eliminar/:id", articulosController.deleteArticulo);
 
 module.exports = router;
+
 
