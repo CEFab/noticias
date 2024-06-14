@@ -47,39 +47,37 @@
   <body>
     <header>
       <h2>Noticias</h2>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/articulos/crear">Crear articulo</a></li>        
+      </ul>
     </header>
     <div class="container">
-      <div class="row">
-        <div class="col col-md-2 publicidad">
-          <h3>Actualidad</h3>
-          <ul>
-            <li><a href="">Noticia 1</a></li>
-            <li><a href="">Noticia 2</a></li>
-            <li><a href="">Noticia 3</a></li>
-            <li><a href="">Noticia 4</a></li>
-            <li><a href="">Noticia 5</a></li>
-          </ul>
-        </div>
-        <div class="col col-md-8">
-          <ul>
-            <% articulos.forEach(function(articulo){ %>
-            <li class="articulo">
-              <h3><%= articulo.titulo %></h3>
-              <p><%= articulo.contenido %></p>
-            </li>
-            <% }); %>
-          </ul>
-        </div>
-        <div class="col col-md-2 publicidad">
-          <h3>Publicidad</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-            impedit, mollitia harum iste numquam ad vitae commodi inventore,
-            error distinctio labore ipsam asperiores repellendus vel,
-            perferendis quae tempora officia quis.
-          </p>
-        </div>
-      </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Contenido</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% articulos.forEach(articulo => { %>
+                    <tr>
+                        <td><%= articulo.titulo %></td>
+                        <td><%= articulo.autor %></td>
+                        <td><%= articulo.contenido %></td>
+                        <td><%= articulo.fecha %></td>
+                        <td>
+                            <a href="/articulos/editar/<%= articulo.id %>">Editar</a>
+                            <a href="/articulos/eliminar/<%= articulo.id %>">Eliminar</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
     </div>
 
     <footer>

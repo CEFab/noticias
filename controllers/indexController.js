@@ -5,7 +5,7 @@ module.exports = {
   getAllArticulos: async (req, res) => {
     try {
       const articulos = await articulo.queryArticulos();
-      res.render('index', { articulos });
+      res.render('home/index', { articulos });
     } catch (error) {
       console.error(error);
       res.status(500).send('Error al obtener los artículos');

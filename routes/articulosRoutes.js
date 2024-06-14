@@ -5,5 +5,6 @@ const articulosController = require("../controllers/articulosController");
 
 // Articulos Endpoint
 router.get("/api/articulos", articulosController.getAllArticulos);
+router.get("/articulos", articulosController.getVistaArticulos);
 
 module.exports = router;
