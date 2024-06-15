@@ -52,7 +52,21 @@ td {
 /* imagen */
 .imagen-articulo {
   float: left;
+  max-height: 75px;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.imagen-articulo-detalle {
+  float: left;
   max-height: 200px;
   margin-right: 10px;
   margin-top: 7px;
 }
+
+.imagen-publicidad {
+  float: left;
+  max-height: 75px;
+  margin-right: 10px;
+  margin-top: 7px;
+} 

@@ -23,7 +23,7 @@
               <div>
                 <img class="imagen-articulo" src="<%= articulo.imagen %>" alt="">
                 <p>
-                  <%= articulo.contenido %>
+                  <%= articulo.contenido.length> 100 ? articulo.contenido.substring(0, 500) + '...' : articulo.contenido %>
                 </p>
                 <!-- <a> para leer el articulo a detalle -->
                 <a href="/articulos/<%= articulo.id %>">Leer más</a>
@@ -35,6 +35,7 @@
       </div>
       <div class="col col-md-2 publicidad">
         <h3>Publicidad</h3>
+        <img class="imagen-publicidad" src="/images/pub.png" alt="">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias impedit,
           mollitia harum iste numquam ad vitae commodi inventore, error distinctio
