@@ -11,4 +11,10 @@ module.exports = {
       res.status(500).send('Error al obtener los artículos');
     }
   },
+  acercaDe : (req, res) => {
+    res.render('home/acercade');
+  },
+  contacto : (req, res) => {
+    res.render('home/contacto');
+  }
 };
